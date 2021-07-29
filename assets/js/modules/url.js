@@ -1,8 +1,8 @@
 export default function UrlManager(){
     this.apiKey            = "3500244f1e0e7fb7f2647a8c7a70ad56";
     this.baseImgUrl        = "https://image.tmdb.org/t/p/w1280";
-    this.defaultUrl        = "http://api.themoviedb.org/3";
-    this.baseUrl           = "http://api.themoviedb.org/3/discover/";
+    this.defaultUrl        = "https://api.themoviedb.org/3";
+    this.baseUrl           = "https://api.themoviedb.org/3/discover/";
     this.moviesUrl         = this.baseUrl + "movie?api_key=" + this.apiKey;
     // "https://api.themoviedb.org/3/search/company?api_key=3500244f1e0e7fb7f2647a8c7a70ad56&"
 }
