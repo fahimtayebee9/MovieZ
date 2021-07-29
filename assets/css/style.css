@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+}
+
+:root{
+    --primary-color: rgb(56, 0, 28);
+    --secondary-color: rgb(255, 212, 234);
+}
+
+.head{
+    background-color: var(--primary-color);
+    padding: 10px 0px;
+}
+
+.banner{
+    background-image: url(https://www.10wallpaper.com/wallpaper/1366x768/2003/Bloodshot_2020_Movies_HD_Poster_1366x768.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 40vh;
+    background-color: rgba(51, 0, 26, 0.7);
+    background-blend-mode: overlay;
+    margin-bottom: 35px;
+}
+
+.bnr-main{
+    min-height: 40vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.bnr-main h4{
+    color: white;
+    font-size: 28px;
+    font-family: 'Lato',sans-serif;
+    font-weight: 700;
+}
+
+.navbar-brand{
+    font-size: 28px;
+    color: var(--secondary-color)!important;
+    font-weight: 800;
+}
+
+.hover-ani{
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Lato',sans-serif;
+    color: white!important;
+    transition: 0.3s all ease-in-out;
+}
+.hover-ani:hover{
+    font-weight: 700;
+    color: var(--secondary-color)!important;
+}
+.hover-ani.active{
+    font-weight: 700;
+    color: var(--secondary-color)!important;
+}
+
+.mv-box{
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 2px rgb(90 0 45 / 18%);
+    position: relative;
+    min-height: 460px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    overflow: hidden;
+}
+.img-holder img{
+    border-radius: 8px;
+}
+.hd-title{
+    margin: 0;
+    font-weight: 700;
+    font-family: 'Open Sans',sans-serif;
+}
+.title-holder h4{
+    margin: 0;
+    margin: 15px 0 5px 0;
+    font-size: 20px;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 600;
+    color: var(--primary-color);
+    position: relative;
+    /* white-space: nowrap; */
+    overflow: hidden;
+}
+.title-holder .tooltip{
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(0%,-50%);
+}
+.title-holder h4:hover .tooltip{
+    top: -50%;
+}
+.title-holder p{
+    margin: 0;
+    font-family: 'Lato',sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000;
+}
+.rating-holder{
+    background: #000000a8;
+    padding: 8px;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.rating-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.rating{
+    margin: 0;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Open Sans',sans-serif;
+}
+.progress-ring__circle {
+    transition: 0.35s stroke-dashoffset;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+.overview-box{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 0;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    transition: 0.3s all ease-in-out;
+    border-radius: 8px;
+    padding: 10px;
+    opacity: 0;
+}
+.overview-box .overview{
+    opacity: 0;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Open Sans',sans-serif;
+    transition: 0.3s all ease-in-out;
+}
+.mv-box:hover .overview-box{
+    height: 70%;
+    opacity: 1;
+}
+.mv-box:hover .overview-box .overview{
+    opacity: 1;
+}
+
+.pagination-div{
+    padding: 50px 0px;
+}

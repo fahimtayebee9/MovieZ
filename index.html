@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Simple News Portal using JavaScript OOP concept and ES6 Module" />
+    <meta name="author" content="Md. Fahim Tayebee" />
+    <meta name="keywords" content="News Portal" />
+    <meta name="robots" content="all" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta property="og:image" content="assets/img/screenshot.PNG" />
+    <meta property="og:description" content="Simple News Portal using JavaScript OOP concept and ES6 Module" />
+    <meta property="og:url" content="http://www.fahimtayebee.com" />
+    <meta property="og:title" content="News Portal" />
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="assets/lib/bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- Script Area -->
+    <script src="assets/js/jquery-3.5.1.js"></script>
+    <script src="assets/lib/bootstrap-4.6.0-dist/js/popper.min.js"></script>
+    <script src="assets/lib/bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/smooth-scroll-jump.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script src="assets/js/script.js" type="module"></script>
+
+    <title>Movies Portal</title>
+</head>
+
+<body id="body-div">
+
+    <section class="main">
+
+        <div class="head">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light ">
+                    <a class="navbar-brand" href="#">MovieZ</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link hover-ani menu-ref" id="all" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link hover-ani menu-ref" id="28" href="#">Action</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link hover-ani menu-ref" id="27" onclick="changeGenre(this)">Horror</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link hover-ani menu-ref" id="10749" href="#">Romance</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="banner">
+            <div class="container">
+                <div class="row justify-content-center align-items-center bnr-main">
+                    <div class="col-md-10 m-auto">
+                        <div class="box-content">
+                            <h4>Welcome.<br>
+                                Millions of movies, TV shows and people to discover. Explore now.
+                            </h4>
+                            <div class="form d-flex">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <select id="btnDomain" class="btn btn-secondary dropdown-toggle" type="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <option value="">Select Domain</option>
+                                            <option class="dropdown-item" value="genre">Genre</option>
+                                            <option class="dropdown-item" value="movie">Movies</option>
+                                            <option class="dropdown-item" value="comopany">Comopany</option>
+                                        </select>
+                                    </div>
+                                    <!-- <input type="text" class="form-control" aria-label="Text input with dropdown button"> -->
+                                    <input type="text" name="search" id="searchField"
+                                        class="form-control custom-control">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-info" type="button" id="btn-search">Search</button>
+                                    </div>
+                                    <!-- <input type="submit" value="Search" class="btn btn-info" id="btn-search"> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-list">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <h4 class="title">Latest Movies</h4>
+                    </div>
+                </div>
+                <div class="row mvList-body">
+                    <div class="col-md-3">
+                        <div class="mv-box">
+                            <div class="img-holder">
+                                <img class="img-fluid w-100"
+                                    src="https://www.themoviedb.org/t/p/w220_and_h330_face/9R4Qtm01pNh0CzdoIyvHKefe5RL.jpg"
+                                    alt="">
+                            </div>
+                            <div class="content-holder d-flex justify-content-between align-items-center">
+                                <div class="title-holder">
+                                    <h4 class="title">Title
+                                        <span class="tooltip">title</span>
+                                    </h4>
+                                    <p class="upload-dt">Upload Date</p>
+                                </div>
+                                <div class="rating-holder">
+                                    <p class="rating">6.9</p>
+                                    <div class="rating-box">
+                                        <svg class="progress-ring" height="70" width="70">
+                                            <circle class="progress-ring__circle" stroke="blanchedalmond"
+                                                stroke-width="3" fill="transparent" r="25" cx="35" cy="35" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="overview-box">
+                                <p class="overview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
+                                    repellat.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer pagination-div">
+            <div class="container">
+                <nav aria-label="Page navigation example" >
+                    <ul class="pagination justify-content-end" id="pagination-ul">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
+
+</html>
