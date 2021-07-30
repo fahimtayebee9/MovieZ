@@ -12,9 +12,18 @@ export default function Element(){
     this.prevBtn           = document.querySelector('#prevBtn');
     this.nextBtnCon        = document.querySelector('#nextBtn-con');
     this.nextBtn           = document.querySelector('#nextBtn');
-    this.pageNo            = document.querySelectorAll('.page-no');
+    // this.pageNo            = document.querySelector('.page-no');
+    this.pageNo            = [];
     this.genreBox          = document.querySelector('#genre-Box');
     this.genreTitle        = document.querySelector('.genre-title');
     this.ratingBox         = document.querySelector('.rating-box');
     this.preloader         = document.querySelector('#preLoader-dv');
+}
+
+Element.prototype.store = function(result){
+    this.previousResult = [...this.pageNo, result];
+}
+
+Element.prototype.addElement = function(value){
+    this.nextBtn = value;
 }

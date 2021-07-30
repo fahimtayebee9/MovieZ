@@ -9,15 +9,11 @@ export default function App () {
     const urlManager = new UrlManager();
     // let currentPage  = 1;
 
-    var radius = element.circle.r.baseVal.value;
-    var circumference = radius ;
-
     // FETCH DATA FROM URL
     const fetchMovies = async (url) => {
         const response = await fetch(url);
         if(response.status == 200){
             var data = await response.json();
-            console.log(data);
             return data;
         }
     }
@@ -44,23 +40,18 @@ export default function App () {
     // Pagination 
     const renderPagination = (result, page = 1) => {
         let count = 0;
-        let endPage = 100;
         let markUp = `<li class="page-item disabled" id="prevBtn-con">
                             <a class="page-link" href="#" id="prevBtn" tabindex="-1" aria-disabled="true">Previous</a>
                         </li>`;
-        for(let pg = 1 ; pg <= endPage; pg++){
+        for(let pg = 1 ; pg <= result.total_pages; pg++){
             let active = (pg == page) ? "active" : "";
             if(pg < 5){
-                markUp += `<li class="page-item ${active}"><a class="page-link page-no" href="#" data-order="pg" >${pg}</a></li>`;
+                markUp += `<li class="page-item ${active}"><a type="button" class="page-link page-no" href="#" id="${pg}" >${pg}</a></li>`;
             }
-            else if(pg > 5 && pg < 97 && count == 0){
+            else if(pg > 5 && count == 0){
                 markUp += setPaginationDots();
                 count++;
             }
-            else if(pg > 97){
-                markUp += `<li class="page-item ${active}"><a class="page-link" href="#" data-order="pg" >${pg}</a></li>`;
-            }
-            
         }
         markUp += `<li class="page-item" id="nextBtn-con">
                         <a class="page-link" id="nextBtn" href="#">Next</a>
@@ -87,9 +78,10 @@ export default function App () {
     }
 
     // CHANGE PAGE (not working)
-    const changePage = (event) => {
+    const changePage = async (event) => {
         event.preventDefault();
-        // this.fetchAll();
+        console.log(event.target.id);
+        await this.fetchAll(event.target.id);
         console.log(event.target);
     }
 
@@ -103,15 +95,14 @@ export default function App () {
     const eventListeners = () => {
         element.searchField.addEventListener('keyup', seachAction );
         element.btnSearch.addEventListener('click',seachAction);
-        element.nextBtn.addEventListener('click', nextPage);
         element.menuList.forEach( function(item){
             item.addEventListener('click',renderMenuResult);
         });
-        element.pageNo.forEach( function(page){
-            page.addEventListener('click', function(event){
-                console.log(page);
-            });
-        });
+        // element.pageNo.forEach( function(page){
+        //     console.log(page);
+        //     page.addEventListener('click', changePage);
+        // });
+        // element.nextBtn.addEventListener('click', nextPage);
     }
 
     // GET GENRE FOR SINGLE MOVIE
@@ -143,7 +134,7 @@ export default function App () {
         var radius = 25;
         var circumference = radius * 2 * Math.PI;
 
-        const offset = circumference - vote_average / 10 * circumference; //movie.vote_average * 10;
+        const offset = circumference - vote_average / 10 * circumference;
         let color  = ""; 
         if(vote_average >= 7.0){
             color = "#21d07a";
@@ -157,6 +148,7 @@ export default function App () {
 
         const ratingCirlce = `
                 <circle 
+                    class="progress-ring__circle"
                     stroke-dashoffset="${offset}"
                     stroke-dasharray="${circumference} ${circumference}"
                     stroke="${color}"
@@ -179,7 +171,7 @@ export default function App () {
             const release_date = new Date(movie.release_date);
 
             markUp += `
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3 col-sm-6 col-lg-3 col-10 mb-3">
                     <div class="mv-box">
                         <div class="img-holder">
                             <img class="img-fluid w-100 lazy" src="${urlManager.baseImgUrl}${movie.poster_path}">
@@ -217,7 +209,8 @@ export default function App () {
         elementObj.innerHTML = value;
     }
 
-    
+    // console.log(element.pageNo.length);
+
     // RENDER ALL
     const renderAll = () => {
         // Fetch Movies
