@@ -5,16 +5,16 @@
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Simple News Portal using JavaScript OOP concept and ES6 Module" />
+    <meta name="description" content="Simple Movies App using JavaScript OOP concept and ES6 Module" />
     <meta name="author" content="Md. Fahim Tayebee" />
-    <meta name="keywords" content="News Portal" />
+    <meta name="keywords" content="MovieZ" />
     <meta name="robots" content="all" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <meta property="og:image" content="assets/img/screenshot.PNG" />
-    <meta property="og:description" content="Simple News Portal using JavaScript OOP concept and ES6 Module" />
+    <meta property="og:description" content="Simple Movies App using JavaScript OOP concept and ES6 Module" />
     <meta property="og:url" content="http://www.fahimtayebee.com" />
-    <meta property="og:title" content="News Portal" />
+    <meta property="og:title" content="MovieZ" />
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
 
     <link rel="stylesheet" href="assets/lib/bootstrap-4.6.0-dist/css/bootstrap.min.css">
@@ -42,15 +42,26 @@
     <script src="assets/js/smooth-scroll-jump.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/jquery.lazy.min.js"></script>
 
-    <script src="assets/js/script.js" type="module"></script>
-
-    <title>Movies Portal</title>
+    <title>MovieZ</title>
 </head>
 
 <body id="body-div">
 
-    <section class="main">
+    <section class="d-none align-items-center justify-content-center " id="preLoader-dv" style="min-height: 100vh;">
+        <div class="preloader">
+            <div class="loader">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="main" id="mainCon">
 
         <div class="head">
             <div class="container">
@@ -65,16 +76,16 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link hover-ani menu-ref" id="all" href="#">Home</a>
+                                <a class="nav-link hover-ani menu-ref" id="0" href="#">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link hover-ani menu-ref" id="28" href="#">Action</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link hover-ani menu-ref" id="27" onclick="changeGenre(this)">Horror</a>
+                                <a class="nav-link hover-ani menu-ref" id="27"  href="#">Horror</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link hover-ani menu-ref" id="10749" href="#">Romance</a>
+                                <a class="nav-link hover-ani menu-ref" id="16" href="#">Animation</a>
                             </li>
                         </ul>
                     </div>
@@ -92,22 +103,11 @@
                             </h4>
                             <div class="form d-flex">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <select id="btnDomain" class="btn btn-secondary dropdown-toggle" type="button"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <option value="">Select Domain</option>
-                                            <option class="dropdown-item" value="genre">Genre</option>
-                                            <option class="dropdown-item" value="movie">Movies</option>
-                                            <option class="dropdown-item" value="comopany">Comopany</option>
-                                        </select>
-                                    </div>
-                                    <!-- <input type="text" class="form-control" aria-label="Text input with dropdown button"> -->
                                     <input type="text" name="search" id="searchField"
                                         class="form-control custom-control">
                                     <div class="input-group-append">
                                         <button class="btn btn-info" type="button" id="btn-search">Search</button>
                                     </div>
-                                    <!-- <input type="submit" value="Search" class="btn btn-info" id="btn-search"> -->
                                 </div>
                             </div>
                         </div>
@@ -149,8 +149,7 @@
                                 </div>
                             </div>
                             <div class="overview-box">
-                                <p class="overview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
-                                    repellat.</p>
+                                <p class="overview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, repellat.</p>
                             </div>
                         </div>
                     </div>
@@ -169,15 +168,22 @@
                         <li class="page-item"><a class="page-link" href="#">2</a></li>
                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                         <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
+                            <a class="page-link" href="#" id="nextBtn">Next</a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
+
     </section>
 
+    <script src="assets/js/script.js" type="module"></script>
 
+    <script>
+        $(function($) {
+            $("img.lazy").Lazy();
+        });
+    </script>
 
 </body>
 

@@ -16,11 +16,16 @@ UrlManager.prototype.createUrl = function(key = [], value = []){
     return newUrl;
 }
 
-UrlManager.prototype.createSearchUrl = function(key = [] , value = [], domain){
+UrlManager.prototype.createFindUrl = function(find, domain){
+    let newUrl = `${this.defaultUrl}/${domain}/${find}?api_key=${this.apiKey}`;
+    return newUrl;
+}
+
+UrlManager.prototype.createSearchUrl = function(key = [] , value = []){
     let options = "";
     for(let i = 0; i < key.length && value.length; i++){
         options += `&${key[i]}=${value[i]}`;
     }
-    let newUrl = `${this.defaultUrl}/search/${domain}?api_key=${this.apiKey}${options}`;
+    let newUrl = `${this.defaultUrl}/search/movie?api_key=${this.apiKey}${options}`;
     return newUrl;
 }

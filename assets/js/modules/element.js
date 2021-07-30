@@ -8,4 +8,13 @@ export default function Element(){
     this.btnDomain         = document.querySelector('#btnDomain');
     this.menuList          = document.querySelectorAll('.menu-ref');
     this.paginationUl      = document.querySelector('#pagination-ul');
+    this.prevBtnCon        = document.querySelector('#prevBtn-con');
+    this.prevBtn           = document.querySelector('#prevBtn');
+    this.nextBtnCon        = document.querySelector('#nextBtn-con');
+    this.nextBtn           = document.querySelector('#nextBtn');
+    this.pageNo            = document.querySelectorAll('.page-no');
+    this.genreBox          = document.querySelector('#genre-Box');
+    this.genreTitle        = document.querySelector('.genre-title');
+    this.ratingBox         = document.querySelector('.rating-box');
+    this.preloader         = document.querySelector('#preLoader-dv');
 }
