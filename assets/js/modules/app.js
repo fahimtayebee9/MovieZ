@@ -174,8 +174,9 @@ export default function App () {
     const renderMovies = async (movies) => {
         let markUp = '';
         movies.forEach(movie => {
-            // let genres = await getGenre(movie.genre_ids);
             const subTitle = (movie.title.length > 16) ? `${movie.title.substr(0,16)}..` : movie.title;
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const release_date = new Date(movie.release_date);
 
             markUp += `
                 <div class="col-md-3 mb-3">
@@ -189,7 +190,7 @@ export default function App () {
                                     <span class="tooltip">${movie.title}</span>
                                 </h4>
                                 <div class="genreBox" id="genre-Box">
-                                    <p class="genre-title">genre</p>
+                                    <p class="genre-title">${release_date.toLocaleDateString("en-US", options)}</p>
                                 </div>
                             </div>
                             <div class="rating-holder">
