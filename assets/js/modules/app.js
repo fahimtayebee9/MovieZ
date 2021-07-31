@@ -45,6 +45,7 @@ export default function App () {
         if(event.target.id == "prevBtn"){
             // NOT GETTING THE IDEA TO TRIGGER PREV BUTTON
         }
+        renderPreloader();
         await fetchAll(event.target.id);
     }
 
