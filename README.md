@@ -5,14 +5,14 @@
   <h3 align="center">MovieZ [TMDB API & JS]</h3>
 
   <p align="center">
-    An Awesome Frontend Design Template to jumpstart your buisness!
+    Simple ways to use API's!
     <br />
     <br />
-    <a href="https://fahimtayebee9.github.io/Agency-website/">View Demo</a>
+    <a href="https://fahimtayebee9.github.io/MovieZ/">View Demo</a>
     ·
-    <a href="https://fahimtayebee9.github.io/Agency-website/issues">Report Bug</a>
+    <a href="https://fahimtayebee9.github.io/MovieZ/issues">Report Bug</a>
     ·
-    <a href="https://fahimtayebee9.github.io/Agency-website/issues">Request Feature</a>
+    <a href="https://fahimtayebee9.github.io/MovieZ/issues">Request Feature</a>
   </p>
 </p>
 
