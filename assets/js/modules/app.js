@@ -163,7 +163,7 @@ export default function App () {
                     <button type="button" class="movieBtn_${count}" data-toggle="modal" data-target="#movieDetail_${count}" style="border: none; border-radius: 8px;">
                         <div data-target="movieDetails" data-toggle="modal" class="mv-box " id="movieBox_${count}">
                             <div class="img-holder">
-                                <img class="img-fluid w-100 lazy" src="${urlManager.baseImgUrl}${movie.poster_path}">
+                                <img loading="lazy" class="img-fluid w-100 lazy" src="${urlManager.baseImgUrl}${movie.poster_path}">
                             </div>
                             <div class="content-holder d-flex justify-content-between align-items-center">
                                 <div class="title-holder">
