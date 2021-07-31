@@ -7,7 +7,7 @@ export default function App () {
     // GETTING REQUIRED ELEMENTS
     const element    = new Element();
     const urlManager = new UrlManager();
-    // let currentPage  = 1;
+    App.current      = 1;
 
     // FETCH DATA FROM URL
     const fetchMovies = async (url) => {
@@ -39,48 +39,89 @@ export default function App () {
 
     // CHANGE PAGE (not working)
     const changePage = async (event) => {
-        if(event.target.id == "nextBtn"){
-            // NOT GETTING THE IDEA TO TRIGGER NEXT BUTTON
-        }
-        if(event.target.id == "prevBtn"){
-            // NOT GETTING THE IDEA TO TRIGGER PREV BUTTON
-        }
         renderPreloader();
-        await fetchAll(event.target.id);
+        if(event.target.id == "nextBtn"){
+            await fetchAll(++App.current);
+            if(App.current > 1){
+                document.querySelector('#prevBtn-con').classList.remove('disabled');
+            }
+        }
+        else if(event.target.id == "prevBtn"){
+            await fetchAll(--App.current);
+            if(App.current < 2){
+                document.querySelector('#prevBtn-con').classList.add('disabled');
+            }
+        }
+        else{
+            for(let i = 0; i <= event.target.id; i++){
+                if(App.current == Number(event.target.id)){
+                    break;
+                }
+                App.current++;
+            }
+            await fetchAll(event.target.id);
+            
+            if(App.current > 1){
+                document.querySelector('#prevBtn-con').classList.remove('disabled');
+            }
+            else if(App.current < 2){
+                document.querySelector('#prevBtn-con').classList.add('disabled');
+            }
+        }
     }
 
-
     // Pagination 
-    const renderPagination = (result, page = 1) => {
+    const renderPagination = (result, page) => {
         let count = 0;
-        let markUp = `<li class="page-item disabled" id="prevBtn-con">
+        
+        let markUp = `<li class="page-item ${(page === 1)? "disabled" :""}" id="prevBtn-con">
                             <button class="page-link" href="#" id="prevBtn" tabindex="-1" aria-disabled="true">Previous</button>
                         </li>`;
         for(let pg = 1 ; pg <= result.total_pages; pg++){
             let active = (pg == page) ? "active" : "";
-            if(pg <= 10){
-                markUp += `<li class="page-item ${active}"><button type="button" class="page-link page-no" href="#" id="${pg}" >${pg}</button></li>`;
+
+            if(pg <= App.current + 4){
+                markUp += `<li class="page-item pg-c ${active}"><button type="button" class="page-link page-no" href="#" id="${pg}" >${pg}</button></li>`;
             }
-            else if(pg > page && count == 0 && page != 1){
-                markUp += setPaginationDots();
+            else if(pg > App.current + 5 && count == 0){
+                markUp += `<li class="page-item pg-c"><a class="page-link" href="#">...</a></li>`;
                 count++;
             }
         }
-        markUp += `<li class="page-item" id="nextBtn-con">
+        markUp += `<li class="page-item ${(page === result.total_pages)? "disabled" :""}" id="nextBtn-con">
                         <button class="page-link" id="nextBtn" href="#">Next</button>
                     </li>`;
         setValue(Element.paginationUl, markUp);
-        document.querySelectorAll('.page-no').forEach( button => {
-            button.addEventListener('click', changePage);
-            
-            // changePage(button);
-        });
-        document.querySelector('#nextBtn').addEventListener('click', changePage);
+        
+        removePreviusElement();
+
+        paginationEventListener();
     }
 
-    const setPaginationDots = () => {
-        let markUp = `<li class="page-item"><a class="page-link" href="#">...</a></li>`;
-        return markUp;
+    // PAGINATION EVENT LISTENER
+    const paginationEventListener = () => {
+        document.querySelectorAll('.page-no').forEach( button => {
+            button.addEventListener('click', changePage);
+        });
+        document.querySelector('#nextBtn').addEventListener('click', changePage);
+        document.querySelector('#prevBtn').addEventListener('click', changePage);
+    }
+
+    const removePreviusElement = () => {
+        const pg_elements   = document.querySelectorAll('.pg-c');
+        const active_el     = document.querySelector('.page-item:is(.active)');
+        let index_active    = -10;
+        for(let i = 0; i < pg_elements.length; i++){
+            if(pg_elements[i] == active_el){
+                index_active = i ;
+            }
+        }
+
+        if(index_active != -10){
+            for(let i = 0; i < index_active-1; i++){
+                pg_elements[i].remove();
+            }
+        }
     }
 
     // MENU ITEM CLICK
@@ -106,7 +147,7 @@ export default function App () {
             Element.preloader.classList.add('d-none');
             Element.preloader.classList.remove('d-flex');
             Element.mainDiv.classList.add('d-block');
-        },2000);
+        }, 2000);
     }
 
     // RENDER RATING CIRLCE
@@ -436,10 +477,7 @@ export default function App () {
         // Fetch Movies
         fetchAll(1);
         
-        getInfos(497698,null);
-
         eventListeners();
-
     };
 
     return {
