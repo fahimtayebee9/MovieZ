@@ -55,9 +55,9 @@ Have Fun Playing With API.
 * View movies by genre
 * Pagination on total results
 * Show Rating (indicating colors)
-    - ![#f03c15] `#f03c15` If rating is lest than 4.0
-    - ![#c5f015] `#c5f015` If rating is between 4.0 and 7.0
-    - ![#1589F0] `#1589F0` If rating is greater than 7.0
+    - 🔴 If rating is lest than 4.0
+    - 🟡 If rating is between 4.0 and 7.0
+    - 🟢 If rating is greater than 7.0
 * Show Single Movie Details
 * Show Single Movie Actors and cast
 * Show Single Movie Medias like trailers
