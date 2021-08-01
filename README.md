@@ -49,6 +49,19 @@
 This a simple movie listing website template. It is made with TMDB API and Basic OOP concepts of JavaScript and ES6 modules. In this template it is shown how to collect data and render them using javascript to website. Any data from any api can be used same as this. Just need to change urls in the UrlManager. That's it. 
 Have Fun Playing With API.
 
+### Features List
+* List movies
+* Search any movies
+* View movies by genre
+* Pagination on total results
+* Show Rating (indicating colors)
+    - ![#f03c15] `#f03c15` If rating is lest than 4.0
+    - ![#c5f015] `#c5f015` If rating is between 4.0 and 7.0
+    - ![#1589F0] `#1589F0` If rating is greater than 7.0
+* Show Single Movie Details
+* Show Single Movie Actors and cast
+* Show Single Movie Medias like trailers
+
 A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
 ### Built With
