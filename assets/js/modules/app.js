@@ -20,6 +20,7 @@ export default function App () {
 
     // FETCH ALL FOR HOME
     const fetchAll = async (currentPage) => {
+        console.log(App.current);
         const data = await fetchMovies(urlManager.createUrl( [ 'page', 'sort_by'] , [ currentPage, 'popularity.desc' ] ));
         if(data != null){
             renderMovies(data.results);
@@ -196,10 +197,15 @@ export default function App () {
     const renderMovies = async (movies) => {
         let markUp = '';
         let count = 0;
+
+        Element.movideDetails_list.innerHTML = "";
+        
         movies.forEach(movie => {
             const subTitle = (movie.title.length > 16) ? `${movie.title.substr(0,16)}..` : movie.title;
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
             const release_date = new Date(movie.release_date);
+            
+            renderDetails(movie.id,`movieDetail_${count}`);
 
             markUp += `<div class="col-md-6 col-sm-6 col-lg-3 col-10 mb-3 ">
                     <button type="button" class="movieBtn_${count}" data-toggle="modal" data-target="#movieDetail_${count}" style="border: none; border-radius: 8px;">
@@ -226,7 +232,7 @@ export default function App () {
                     </button>
                 </div>`;
             setValue(Element.wrapperBnr, markUp);
-            renderDetails(movie.id,`movieDetail_${count}`);
+            
             count++;
         });
     };
@@ -330,6 +336,8 @@ export default function App () {
         const KEYWORDS      = await getInfos(movie_id, 'keywords');
         const VIDEOS        = await getInfos(movie_id, 'videos');
         const IMAGES        = await getInfos(movie_id, 'images');
+
+        console.log(movieData);
 
         markUp += `
             <div class="modal fade" id="${modal_id}" tabindex="-1" aria-labelledby="${modal_id}" aria-hidden="true">
