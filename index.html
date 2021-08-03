@@ -33,6 +33,8 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <title>MovieZ</title>
 </head>
 
@@ -75,6 +77,18 @@
                             <li class="nav-item">
                                 <a class="nav-link hover-ani menu-ref" id="16" href="#">Animation</a>
                             </li>
+                            <li class="nav-item comp-li">
+                                <a  class="nav-link hover-ani dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Compare
+                                </a>
+                                <span class="comp-count badge badge-warning">0</span>
+
+                                <ul class="dropdown-menu dropdown-cart" role="menu">
+                                    <li>
+                                        <p class="m-0 pt-3 pb-3 text-center font-weight-bold">No Movies In List</p>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -113,235 +127,58 @@
                     </div>
                 </div>
                 <div class="row mvList-body">
-                    <div class="col-md-3">
-                        <button type="button" data-toggle="modal" data-target="#exampleModal"
-                            style="border: none; border-radius: 8px;">
-                            <div class="mv-box">
-                                <div class="img-holder">
-                                    <img class="img-fluid w-100"
-                                        src="https://www.themoviedb.org/t/p/w220_and_h330_face/9R4Qtm01pNh0CzdoIyvHKefe5RL.jpg"
-                                        alt="">
-                                </div>
-                                <div class="content-holder d-flex justify-content-between align-items-center">
-                                    <div class="title-holder">
-                                        <h4 class="title">Title
-                                            <span class="tooltip">title</span>
-                                        </h4>
-                                        <p class="upload-dt">Upload Date</p>
-                                    </div>
-                                    <div class="rating-holder" style="background: #081c22;">
-                                        <p class="rating">6.9</p>
-                                        <div class="rating-box">
-                                            <svg class="progress-ring" height="70" width="70">
-                                                <circle class="progress-ring__circle"
-                                                    stroke-dashoffset="36.128315516282626"
-                                                    stroke-dasharray="157.07963267948966 157.07963267948966"
-                                                    stroke="#21d07a" stroke-width="4.5" fill="transparent"
-                                                    stroke-linecap="round" r="25" cx="35" cy="35" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="overview-box">
-                                    <p class="overview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
-                                        repellat.</p>
+                    <!-- <div class="col-md-3">
+                        <div class="mv-box">
+                            <div class="img-holder">
+                                <img class="img-fluid w-100"
+                                    src="https://www.themoviedb.org/t/p/w220_and_h330_face/9R4Qtm01pNh0CzdoIyvHKefe5RL.jpg"
+                                    alt="">
+                                <div class="compare-btns">
+                                    <button type="button" id="comp-btn" class="btn-custom">
+                                        <i class="fas fa-balance-scale"></i>
+                                    </button>
+                                    <button type="button" data-toggle="modal" class="btn-custom"
+                                        data-target="#exampleModal">
+                                        <i class="far fa-eye"></i>
+                                    </button>
                                 </div>
                             </div>
-                        </button>
-                    </div>
+                            <div class="content-holder d-flex justify-content-between align-items-center">
+                                <div class="title-holder">
+                                    <h4 class="title">Title
+                                        <span class="tooltip">title</span>
+                                    </h4>
+                                    <p class="upload-dt">Upload Date</p>
+                                </div>
+                                <div class="rating-holder" style="background: #081c22;">
+                                    <p class="rating">6.9</p>
+                                    <div class="rating-box">
+                                        <svg class="progress-ring" height="70" width="70">
+                                            <circle class="progress-ring__circle" stroke-dashoffset="36.128315516282626"
+                                                stroke-dasharray="157.07963267948966 157.07963267948966"
+                                                stroke="#21d07a" stroke-width="4.5" fill="transparent"
+                                                stroke-linecap="round" r="25" cx="35" cy="35" />
+                                        </svg>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="overview-box">
+                                <p class="overview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
+                                    repellat.</p>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
 
         <section id="movideDetails_list">
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
-                <div class="modal-dialog" style="width: 100%;">
-                    <div class="modal-content ">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mvd-banner"
-                                style="background-image: url('https://static1.colliderimages.com/wordpress/wp-content/uploads/2020/11/black-widow-poster-social-feature.jpg');">
-                                <div class="container">
-                                    <div class="mvd-bnr-box">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="img-holder">
-                                                    <img class="img-fluid w-100"
-                                                        src="https://www.themoviedb.org/t/p/w220_and_h330_face/9R4Qtm01pNh0CzdoIyvHKefe5RL.jpg"
-                                                        alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div class="mvd-title">
-                                                    <h1>Black Widow <span class="year">(2021)</span></h1>
-                                                    <div class="sub-title">
-                                                        <span class="release">07/09/2021 (US)</span>
-                                                        <span class="genres">Action, Adventure, Thriller, Science
-                                                            Fiction</span>
-                                                        <span class="runtime">2h 14m</span>
-                                                    </div>
-                                                </div>
+            
+        </section>
 
-                                                <div class="tag-box">
-                                                    <div class="userRating">
-                                                        <div class="rating-holder" style="background: #081c22;">
-                                                            <p class="rating">6.9</p>
-                                                            <div class="rating-box">
-                                                                <svg class="progress-ring" height="80" width="80">
-                                                                    <circle class="progress-ring__circle"
-                                                                        stroke-dashoffset="36.128315516282626"
-                                                                        stroke-dasharray="157.07963267948966 157.07963267948966"
-                                                                        stroke="#21d07a" stroke-width="4.5"
-                                                                        fill="transparent" stroke-linecap="round" r="30"
-                                                                        cx="40" cy="40" />
-                                                                </svg>
-                                                            </div>
-                                                        </div>
-                                                        <p>
-                                                            User Score
-                                                        </p>
-                                                    </div>
-                                                    <p class="tagline">
-                                                        Her world. Her secrets. Her legacy.
-                                                    </p>
-                                                </div>
-
-                                                <div class="overview-box">
-                                                    <h5 class="hd-title">Overview</h5>
-                                                    <p class="overview">
-                                                        Natasha Romanoff, also known as Black Widow, confronts the
-                                                        darker parts of her
-                                                        ledger when a dangerous conspiracy with ties to her past arises.
-                                                        Pursued by a
-                                                        force that will stop at nothing to bring her down, Natasha must
-                                                        deal with her history as a spy and the broken
-                                                        relationships left in her wake long before she became an
-                                                        Avenger.
-                                                    </p>
-                                                </div>
-
-                                                <div class="row peoples-list">
-                                                    <div class="col-md-4 people no_image">
-                                                        <p class="name">Cate Shortland</p>
-                                                        <p class="character">Director</p>
-                                                    </div>
-                                                    <div class="col-md-4 people no_image">
-                                                        <p class="name">Cate Shortland</p>
-                                                        <p class="character">Director</p>
-                                                    </div>
-                                                    <div class="col-md-4 people no_image">
-                                                        <p class="name">Cate Shortland</p>
-                                                        <p class="character">Director</p>
-                                                    </div>
-                                                    <div class="col-md-4 people no_image">
-                                                        <p class="name">Cate Shortland</p>
-                                                        <p class="character">Director</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mvd-info">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <div class="mvd-casts">
-                                                <h1>Top Billed Cast</h1>
-                                                <div class="row casts-list">
-                                                    <div class="col-md-3">
-                                                        <div class="cast-box">
-                                                            <div class="img-box">
-                                                                <img src="https://www.themoviedb.org/t/p/w138_and_h175_face/7rwSXluNWZAluYMOEWBxkPmckES.jpg"
-                                                                    class="img-fluid w-100" alt="">
-                                                            </div>
-                                                            <div class="info-box">
-                                                                <h5 class="r-name">Vin Diesel</h5>
-                                                                <p class="m-name">Dom</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="mvd-media">
-                                                <div class="media-header d-flex justify-content-start align-items-center">
-                                                    <h1>Media</h1>
-
-                                                    <nav>
-                                                        <div class="nav nav-tabs m-auto" id="nav-tab" role="tablist">
-                                                            <a class="nav-item nav-link active" data-toggle="tab" href="#videos" role="tab" aria-controls="videos" aria-selected="false">Videos</a>
-                                                            <a class="nav-item nav-link" data-toggle="tab" href="#images" role="tab" aria-controls="images" aria-selected="false">Images</a>
-                                                        </div>
-                                                    </nav>
-                                                </div>
-
-                                                <!-- Tab panes -->
-                                                <div class="tab-content " id="nav-tabContent">
-                                                    <div class="tab-pane fade active show" id="videos" role="tabpanel" aria-labelledby="privacy-tab">
-                                                        <div class="casts-list d-flex justify-content-start align-items-center">
-                                                            <div class="cast-box">
-                                                                <div class="img-box">
-                                                                    <img src="https://www.themoviedb.org/t/p/w138_and_h175_face/7rwSXluNWZAluYMOEWBxkPmckES.jpg"
-                                                                        class="img-fluid w-100" alt="">
-                                                                </div>
-                                                                <div class="info-box">
-                                                                    <h5 class="r-name">Vin Diesel</h5>
-                                                                    <p class="m-name">BAL</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                            
-                                                    <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="terms-tab">
-                                                        <div class="casts-list d-flex justify-content-start align-items-center">
-                                                            <div class="cast-box">
-                                                                <!-- <img loading="lazy" class="backdrop" src="https://www.themoviedb.org/t/p/w533_and_h300_bestv2/" alt="F9"> -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="info-area">
-                                                <div class="info-box">
-                                                    <h5 class="r-name">Status</h5>
-                                                    <p class="m-name">Dom</p>
-                                                </div>
-                                                <div class="info-box">
-                                                    <h5 class="r-name">Original Language</h5>
-                                                    <p class="m-name">Dom</p>
-                                                </div>
-                                                <div class="info-box">
-                                                    <h5 class="r-name">Budget</h5>
-                                                    <p class="m-name">Dom</p>
-                                                </div>
-                                                <div class="info-box">
-                                                    <h5 class="r-name">Revenue</h5>
-                                                    <p class="m-name">Dom</p>
-                                                </div>
-                                            </div>
-                                            <div class="info-area keywords">
-                                                <h1>Keywords</h1>
-                                                <div class="info-box">
-                                                    <p class="genre-title mr-1 mb-1">May 19, 2021</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section id="compareBox">
+            
         </section>
 
         <div class="footer pagination-div">
@@ -370,8 +207,8 @@
     <script src="assets/js/script.js" type="module"></script>
 
     <script>
-        $(document).ready(function(){
-            $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
+        $(document).ready(function () {
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                 e.target // active tab
                 e.relatedTarget // previous tab
             })

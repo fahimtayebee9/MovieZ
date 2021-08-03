@@ -19,4 +19,10 @@ export default function Element(){
     Element.ratingBox         = document.querySelector('.rating-box');
     Element.preloader         = document.querySelector('#preLoader-dv');
     Element.movideDetails_list= document.querySelector('#movideDetails_list');
+    Element.compCount         = document.querySelector('.comp-count');
+    Element.compBtn           = document.querySelector('.comp-btn');
+    Element.compRef           = document.querySelector('.comp-ref');
+    Element.compModal         = document.querySelector('.comp-modal');
+    Element.compareBox        = document.querySelector('#compareBox');
+    Element.dropDown          = document.querySelector('.dropdown-cart');
 }
