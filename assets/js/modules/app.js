@@ -793,7 +793,7 @@ export default function App () {
                             <div class="modal-dialog" style="width: 100%;">
                                 <div class="modal-content ">
                                     <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <button type="button" class="close mdl-close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
@@ -816,6 +816,14 @@ export default function App () {
                         </div>`;
 
         Element.compareBox.innerHTML = markUp;
+
+        document.querySelector('.mdl-close').addEventListener('click', function(){
+            while(App.compareArray.length > 0) {
+                App.compareArray.pop();
+            }
+            Element.compCount.innerHTML = App.compareArray.length;
+            renderDropDown();
+        });
     }
 
     // COMPARISON DATA CHECKING
