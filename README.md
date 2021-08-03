@@ -61,6 +61,7 @@ Have Fun Playing With API.
 * Show Single Movie Details
 * Show Single Movie Actors and cast
 * Show Single Movie Medias like trailers
+* Compare Two Movies
 
 A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
